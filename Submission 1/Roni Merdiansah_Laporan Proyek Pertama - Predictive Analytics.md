@@ -8,7 +8,7 @@ Saat ini tinggal di sebuah apartemen sudah menjadi gaya hidup masyarakat urban, 
 
 ### Problem Statements
 
-Sebuah hal penting untuk mengethaui fasilitas seperti apa yang dapat mempengaruhi kualitas sebuah apartemen. Hal ini akan sangat membantu seseorang yang ingin memulai bisnis apartemen. Berikut beberapa rumusan masalah yang akan kita cari tahu:
+Sebuah hal penting untuk mengetahui fasilitas seperti apa yang dapat mempengaruhi kualitas sebuah apartemen. Hal ini akan sangat membantu seseorang yang ingin memulai bisnis apartemen. Berikut beberapa rumusan masalah yang akan kita cari tahu:
 - Seberapa akurat klasifikasi yang ada sebelumnya pada dataset?
 - Fasilitas apa saja yang sangat berpengaruh terhadap peng-klasifikasian itu?
 
@@ -76,7 +76,7 @@ Pada tahap ini dilakukan pembersihan pada data-data yang tidak memiliki informas
 Karena model yang akan dibuat disini adalah klasifikasi, maka diperlukan mengeliminasi beberapa fitur yang tidak diperlukan. adapaun fitur yang akan dieliminasi adalah `cityCode` dan `made`.
 
 #### Reformatting String
-Karena sebelumnya pada fitur `numberOfRooms` merupakan Teks Angka dalam bahasa inggris, maka harus diubah dahulu menjadi numerik agar fitur dapat digunakan pada saat pemodelan Machine Learning
+Sebelumnya pada fitur `numberOfRooms` merupakan Teks Angka dalam bahasa inggris, maka harus diubah dahulu menjadi numerik agar fitur dapat digunakan pada saat pemodelan Machine Learning
 
 #### Encoding
 
