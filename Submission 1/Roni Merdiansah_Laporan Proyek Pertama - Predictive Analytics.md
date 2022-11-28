@@ -2,7 +2,7 @@
 
 ## Domain Proyek
 
-Saat ini tinggal di sebuah apartemen sudah menjadi gaya hidup masyarakat urban, hal ini disebabkan karena banyaknya fasilitas yang ditawarkan di sebuah apartemen. Apalagi saat ini banyaknya apartemen yang dibangun di pusat kota ataupun pusat bisnis, sehingga dapat memudahkan bagi mereka para profesional muda untuk beraktivitas [(Tim Editorial Rumah.com, 2022)](https://www.rumah.com/panduan-properti/bisnis-apartemen-69876). Kelengkapan fasilitas yang dimiliki tiap apartemen sangat mempengaruhi dalam mengklasifikasikan apartemen itu sendiri. Proyek yang dilakukan saat ini akan mempelajari klasifikasi yang sudah ada sebelumnya pada dataset dengan pendekatan Machine Learning.
+Saat ini tinggal di sebuah apartemen sudah menjadi gaya hidup masyarakat urban, hal ini disebabkan karena banyaknya fasilitas yang ditawarkan di sebuah apartemen. Apalagi saat ini banyaknya apartemen yang dibangun di pusat kota ataupun pusat bisnis, sehingga dapat memudahkan bagi mereka para profesional muda untuk beraktivitas [(Tim Editorial Rumah.com, 2022)](https://www.rumah.com/panduan-properti/bisnis-apartemen-69876). Kelengkapan fasilitas yang dimiliki tiap apartemen sangat mempengaruhi dalam mengklasifikasikan apartemen itu sendiri. Proyek yang dilakukan saat ini akan mempelajari klasifikasi yang sudah ada sebelumnya pada dataset dengan pendekatan *Machine Learning*.
 
 ## Business Understanding
 
@@ -16,7 +16,7 @@ Sebuah hal penting untuk mengetahui fasilitas seperti apa yang dapat mempengaruh
 
 Adapun tujuan dari proyek ini sebagai berikut:
 - Melatih model klasifikasi dengan jumlah 10 model dan mencaritahu model mana yang memiliki akurasi paling bagus terhadap kolom target, dan menjadikan kolom lain sebagai fitur.
-- Mencaritahu ada berapa fitur penting yang memiliki presentase tinggi terhadap kolom target, dengan cara mengambil model yang memiliki kemampuan membaca presentase fitur dengan baik.
+- Mencaritahu ada berapa fasilitas penting yang memiliki presentase tinggi terhadap kolom target, dengan cara mengambil model yang memiliki kemampuan membaca presentase setiap fitur dengan baik.
 
 ## Data Understanding
 
