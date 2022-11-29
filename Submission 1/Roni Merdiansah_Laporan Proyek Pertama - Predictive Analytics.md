@@ -15,7 +15,7 @@ Sebuah hal penting untuk mengetahui fasilitas seperti apa yang dapat mempengaruh
 ### Goals
 
 Adapun tujuan dari proyek ini sebagai berikut:
-- Melatih model klasifikasi dengan jumlah 10 model dan mencaritahu model mana yang memiliki akurasi paling bagus terhadap kolom target, dan menjadikan kolom lain sebagai fitur.
+- Melatih model klasifikasi dengan jumlah 4 model dan mencaritahu model mana yang memiliki akurasi paling bagus terhadap kolom target, dan menjadikan kolom lain sebagai fitur.
 - Mencaritahu ada berapa fasilitas penting yang memiliki presentase tinggi terhadap kolom target, dengan cara mengambil model yang memiliki kemampuan membaca presentase setiap fitur dengan baik.
 
 ## Data Understanding
@@ -116,34 +116,26 @@ Pembagian untuk data latih adalah 80% atau 8000 data, dan data test adalah 20% a
 Disini akan menggunakan 10 basis model untuk mencari tahu perbandingan model mana yang memiliki akurasi paling bagus, adapun 10 model itu sebagai berikut:
 
 - DecisionTreeClassifier
-- LogisticRegression
-- KNeighborsClassifier
+- RandomForestClassifier
 - GaussianNB
 - SVC
-- LinearSVC
-- RandomForestClassifier
-- GradientBoostingClassifier
-- ExtraTreesClassifier
-- XGBClassifier
 
-Karena data pada kolom target sebelumnya tidak seimbang (imbalance) jumlah antara *Basic* dan *Luxury*, maka pada proyek ini menggunakan _Cross Validation - Stratified K Fold_. Konsep dari Cross Validation - Stratified K Fold sendiri adalah validasi silang antara data latih dan data test, dimana sejumlah data yang pernah menjadi data latih akan di posisikan menjadi data test, begitu pun sebaliknya. Validasi silang ini dilakukan tergantung jumlah _n_ yang dimasukkan. Pada proyek ini menggunakan jumlah _n_ sebanyak 2. Setelah membuat basis model didaptkan 5 model terbaik yang memiliki akurasi sempurna sebagai berikut:
+Karena data pada kolom target sebelumnya tidak seimbang (imbalance) jumlah antara *Basic* dan *Luxury*, maka pada proyek ini menggunakan _Cross Validation - Stratified K Fold_. Konsep dari Cross Validation - Stratified K Fold sendiri adalah validasi silang antara data latih dan data test, dimana sejumlah data yang pernah menjadi data latih akan di posisikan menjadi data test, begitu pun sebaliknya. Validasi silang ini dilakukan tergantung jumlah _n_ yang dimasukkan. Pada proyek ini menggunakan jumlah _n_ sebanyak 2. Setelah membuat basis model didaptkan 2 model terbaik yang memiliki akurasi sempurna sebagai berikut:
 
 - DecisionTreeClassifier
 - RandomForestClassifier
-- GradientBoostingClassifier
-- ExtraTreesClassifier
-- XGBClassifier
 
 Confusion Matrix
+
 ![](https://raw.githubusercontent.com/Dapperson/Machine-Learning-Terapan/main/Submission%201/Confusion%20Matrix.png)
 
-Kelima model tersebut dapat membaca model dengan baik dengan nilai
-True Positive = `4367`
-True Negative = `633`
-False Positive = `0`
-False Negative = `0`
+Kedua model tersebut dapat membaca model dengan baik dengan nilai
+- True Positive = `4367`
+- True Negative = `633`
+- False Positive = `0`
+- False Negative = `0`
 
-Karena salah satu tujuan proyek ini adalah mencari tahu fitur penting yang sangat berpengaruh terhadap klasifikasi, maka diantara kelima model tersebut yang paling banyak mendeteksi fitur penting adalah *RandomForestClassifier*
+Karena salah satu tujuan proyek ini adalah mencari tahu fitur penting yang sangat berpengaruh terhadap klasifikasi, maka diantara kedua model tersebut yang paling banyak mendeteksi fitur penting adalah *RandomForestClassifier*
 
 ![](https://raw.githubusercontent.com/Dapperson/Machine-Learning-Terapan/main/Submission%201/Feature%20Importance%20RFC.png)
 
@@ -164,9 +156,9 @@ dengan matriks kebingungan dari data test sebagai berikut
 
 ![](https://raw.githubusercontent.com/Dapperson/Machine-Learning-Terapan/main/Submission%201/Confusion%20Matrix%20HT.png)
 
-True Positive = `1744`
-True Negative = `256`
-False Positive = `0`
-False Negative = `0`
+- True Positive = `1744`
+- True Negative = `256`
+- False Positive = `0`
+- False Negative = `0`
 
 Dengan demikian dapat disimpulkan bahwa kolom `category` meng-klasifikasikan apartemen dengan sempurna antara apartemen *Basic* (Biasa) dengan apartemen *Luxury* (Mewah), dimana faktor yang sangat berpengaruh dalam peng-klasifikasian itu adalah dari *apakah apartemen itu baru di bangun/direnovasi* dan juga *apakah apartemen itu memiliki fasilitas taman ataupun kolam renang*.
