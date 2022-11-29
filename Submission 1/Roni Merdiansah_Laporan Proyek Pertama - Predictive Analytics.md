@@ -79,11 +79,11 @@ Pada tahap ini dilakukan pembersihan pada data-data yang tidak memiliki informas
 Karena model yang akan dibuat disini adalah klasifikasi, maka diperlukan mengeliminasi beberapa fitur yang tidak diperlukan. adapaun fitur yang akan dieliminasi adalah `cityCode` dan `made`.
 
 #### Reformatting String
-Sebelumnya pada fitur `numberOfRooms` merupakan Teks Angka dalam bahasa inggris, maka harus diubah dahulu menjadi numerik agar fitur dapat digunakan pada saat pemodelan Machine Learning
+Sebelumnya pada fitur `numberOfRooms` merupakan Teks Angka dalam bahasa inggris, maka harus diubah dahulu menjadi numerik agar fitur dapat digunakan pada saat pemodelan *Machine Learning*
 
 #### Encoding
 
-Encoding perlu dilakukan agar fitur selain numerik dapat ikut digunakan pada saat pemodelan Machine Learning dengan cara melabeli setiap nilainya, karena Machine Learning hanya bisa menggunakan nilai numerik. Untuk fitur `category` yang merupakan kolom target akan diaplikasikan dengan *LabelEncoder*, dimana nilai *Basic* menjadi `0` dan nilai *Luxury* menjadi `1`
+*Encoding* perlu dilakukan agar fitur selain numerik dapat ikut digunakan pada saat pemodelan *Machine Learning* dengan cara melabeli setiap nilainya, karena *Machine Learning* hanya bisa menggunakan nilai numerik. Untuk fitur `category` yang merupakan kolom target akan diaplikasikan dengan *LabelEncoder*, dimana nilai *Basic* menjadi `0` dan nilai *Luxury* menjadi `1`
 
 Sedangkan untuk kolom kategorikal dan biner lainnya akan diaplikasikan dengan *OneHotEncoder*, karena kolom-kolom ini merupakan input feature. Didapatkan beberapa fitur baru hasil *OneHotEncoder* sebagai berikut:
 
@@ -149,8 +149,6 @@ Kedua model tersebut dapat membaca model dengan baik dengan nilai
 Salah satu tujuan proyek ini adalah mencari tahu fitur penting yang sangat berpengaruh terhadap klasifikasi, maka diantara kedua model tersebut yang paling banyak mendeteksi fitur penting adalah *RandomForestClassifier*
 
 ![](https://raw.githubusercontent.com/Dapperson/Machine-Learning-Terapan/main/Submission%201/Feature%20Importance%20RFC.png)
-
-Random Forest adalah salah satu metode berbasis klasifikasi dan regresi dimana terdapat proses agregasi decision tree. Oleh karena itu, prinsip dasar random forest mirip dengan decision tree. Masing-masing decision tree akan menghasilkan output yang bisa saja berbeda-beda. Nah, random forest ini akan melakukan voting untuk menentukan hasil mayoritas dari semua decision tree. Bedanya, random forest akan memberikan output berupa mayoritas hasil dari semua decision tree. Algoritma ini memberikan akurasi yang bagus dalam klasifikasi, dapat menangani data training yang jumlahnya besar, dan juga efektif untuk mengatasi data yang tidak lengkap.
 
 ## Evaluasi
 
