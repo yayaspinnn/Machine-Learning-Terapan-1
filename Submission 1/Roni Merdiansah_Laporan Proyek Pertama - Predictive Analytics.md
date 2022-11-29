@@ -116,11 +116,22 @@ Pembagian untuk data latih adalah 80% atau 8000 data, dan data test adalah 20% a
 Disini akan menggunakan 10 basis model untuk mencari tahu perbandingan model mana yang memiliki akurasi paling bagus, adapun 10 model itu sebagai berikut:
 
 - DecisionTreeClassifier
+
+Decision tree membangun model klasifikasi dan regresi dalam bentuk struktur pohon. Algoritma ini menguraikan kumpulan data menjadi himpunan bagian yang lebih kecil dan menghubungkannya menjadi pohon keputusan yang terkait. Tujuan utama dari algoritma decision tree adalah untuk membangun model pelatihan yang digunakan untuk memprediksi nilai variabel target dengan mempelajari aturan keputusan. Aturan ini disimpulkan dari data training yang sebelumnya telah diinput. Keuntungan algoritma ini adalah mudah dimengerti, mudah menghasilkan aturan, tidak mengandung hiper-parameter, dan model decision tree yang kompleks dapat disederhanakan secara signifikan dengan visualisasinya.
+
 - RandomForestClassifier
+
+Algoritma Random Forest Classifier merupakan salah satu algoritma klasifikasi machine learning yang paling populer. Seperti namanya, algoritma ini bekerja dengan cara membuat hutan pohon secara acak. Semakin banyak pohon yang dibuat, maka hasilnya akan semakin akurat. Dasar dari algoritma random forest adalah algoritma decision tree. Keuntungan dari algoritma ini adalah dapat digunakan untuk rekayasa fitur seperti mengidentifikasi fitur yang paling penting diantara semua fitur yang tersedia dalam dataset training, bekerja sangat baik pada database berukuran besar, sangat fleksibel, dan memiliki akurasi yang tinggi.
+
 - GaussianNB
+
+Naive bayes classifier merupakan algoritma klasifikasi yang sangat sederhana berdasarkan apa yang disebut pada teorema bayesian. Algoritma ini memiliki satu sifat umum, yaitu setiap data diklasifikasikan tidak bergantung pada fitur lain yang terikat pada kelas atau biasa disebut dengan independen. Artinya, satu data tidak berdampak pada data yang lain. Meskipun algoritma ini merupakan algoritma yang tergolong sederhana, namun naive bayes dapat mengalahkan beberapa metode klasifikasi yang lebih canggih. Algoritma ini biasa digunakan untuk deteksi spam dan klasifikasi dokumen teks. Kelebihan algoritma ini adalah sederhana dan mudah diterapkan, tidak sensitif terhadap fitur yang tidak relevan, cepat, hanya membutuhkan sedikit data training, dan dapat digunakan untuk masalah klasifikasi multi-class dan biner.
+
 - SVC
 
-Karena data pada kolom target sebelumnya tidak seimbang (imbalance) jumlah antara *Basic* dan *Luxury*, maka pada proyek ini menggunakan _Cross Validation - Stratified K Fold_. Konsep dari Cross Validation - Stratified K Fold sendiri adalah validasi silang antara data latih dan data test, dimana sejumlah data yang pernah menjadi data latih akan di posisikan menjadi data test, begitu pun sebaliknya. Validasi silang ini dilakukan tergantung jumlah _n_ yang dimasukkan. Pada proyek ini menggunakan jumlah _n_ sebanyak 2. Setelah membuat basis model didaptkan 2 model terbaik yang memiliki akurasi sempurna sebagai berikut:
+Support Vector Machine atau biasa dikenal dengan algoritma SVM adalah algoritma machine learning yang digunakan untuk masalah klasifikasi atau regresi. Namun, aplikasi yang paling sering digunakan adalah masalah klasifikasi. Algoritma SVM banyak digunakan untuk mengklasifikasikan dokumen teknis misalnya spam filtering, mengkategorikan artikel berita berdasarkan topik, dan lain sebagainya. Keuntungan algoritma ini adalah cepat, efektif untuk ruang dimensi tinggi, akurasi yang bagus, powerful dan fleksibel, dan dapat digunakan di banyak aplikasi.
+
+Didapatkan data pada kolom target sebelumnya tidak seimbang (imbalance) jumlah antara *Basic* dan *Luxury*, maka pada proyek ini menggunakan _Cross Validation - Stratified K Fold_. Konsep dari Cross Validation - Stratified K Fold sendiri adalah validasi silang antara data latih dan data test, dimana sejumlah data yang pernah menjadi data latih akan di posisikan menjadi data test, begitu pun sebaliknya. Validasi silang ini dilakukan tergantung jumlah _n_ yang dimasukkan. Pada proyek ini menggunakan jumlah _n_ sebanyak 2. Setelah membuat basis model didaptkan 2 model terbaik yang memiliki akurasi sempurna sebagai berikut:
 
 - DecisionTreeClassifier
 - RandomForestClassifier
@@ -135,7 +146,7 @@ Kedua model tersebut dapat membaca model dengan baik dengan nilai
 - False Positive = `0`
 - False Negative = `0`
 
-Karena salah satu tujuan proyek ini adalah mencari tahu fitur penting yang sangat berpengaruh terhadap klasifikasi, maka diantara kedua model tersebut yang paling banyak mendeteksi fitur penting adalah *RandomForestClassifier*
+Salah satu tujuan proyek ini adalah mencari tahu fitur penting yang sangat berpengaruh terhadap klasifikasi, maka diantara kedua model tersebut yang paling banyak mendeteksi fitur penting adalah *RandomForestClassifier*
 
 ![](https://raw.githubusercontent.com/Dapperson/Machine-Learning-Terapan/main/Submission%201/Feature%20Importance%20RFC.png)
 
