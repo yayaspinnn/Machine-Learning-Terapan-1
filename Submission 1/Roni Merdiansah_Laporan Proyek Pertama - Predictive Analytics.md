@@ -20,7 +20,7 @@ Adapun tujuan dari proyek ini sebagai berikut:
 
 ## Data Understanding
 
-Data ini merupakan data imajiner [Paris Housing](https://www.kaggle.com/datasets/aleshagavrilov/parishousing) (Apartemen Paris) dari tahun 1990-2021. Meskipun imajiner data ini cukup bagus untuk digunakan dalam proyek ini. Data ini berisi karakteristik dari setiap perumahan di Paris seperti lokasi, fasilitas, dan harga. Data ini memiliki total 1000 data.
+Data ini merupakan data imajiner [Paris Housing](https://www.kaggle.com/datasets/aleshagavrilov/parishousing) (Apartemen Paris) dari tahun 1990-2021. Meskipun imajiner data ini cukup bagus untuk digunakan dalam proyek ini. Data ini berisi karakteristik dari setiap apartemen di Paris seperti lokasi, fasilitas, dan harga. Data ini memiliki total 1000 data.
 
 ### Variabel
 
