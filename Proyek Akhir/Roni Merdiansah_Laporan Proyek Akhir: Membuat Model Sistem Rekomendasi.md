@@ -9,7 +9,7 @@ adalah menggunakan Sistem Rekomendasi pada setiap platform game.
 
 Sistem rekomendasi adalah aplikasi perangkat lunak yang bertujuan untuk mendukung pengguna dalam pengambilan keputusan saat berinteraksi dengan ruang informasi
 yang besar. Sistem rekomendasi membantu mengatasi masalah informasi yang berlebihan dengan mengekspos pengguna ke item yang paling menarik, terbaru, dan relevan 
-[[Fasiha Ikram, 3 Feb 2022](https://www.hindawi.com/journals/sp/2022/6084363/)]. Sistem ini akan merekomendasikan game berdasarkan genre yang pemain sukai, ataupun
+[[Fasiha Ikram, 2022](https://www.hindawi.com/journals/sp/2022/6084363/)]. Sistem ini akan merekomendasikan game berdasarkan genre yang pemain sukai, ataupun
 berdasarkan game apa yang sedang tren saat itu.
 
 ## Business Understanding
@@ -32,14 +32,22 @@ Proyek ini menggunakan 2 algoritma Machine Learning sistem rekomendasi sebagai s
 Algoritma Content Based Filtering digunakan untuk merekemondesikan game berdasarkan aktivitas pengguna pada masa lalu, sedangkan algoritma Collabarative Filltering digunakan untuk merekomendasikan game berdasarkan ratings yang paling tinggi.
 
 ## Data Understanding
-Paragraf awal bagian ini menjelaskan informasi mengenai jumlah data, kondisi data, dan informasi mengenai data yang digunakan. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
 
-Selanjutnya, uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
+Dataset ini berisi data penjualan video game dari seluruh dunia, di berbagai platform, genre, dan wilayah. Dataset ini memberikan informasi tentang apa yang dianggap sebagai game hit di industri game saat ini [[Discovering Hidden Trends in Global Video Games](https://www.kaggle.com/datasets/thedevastator/discovering-hidden-trends-in-global-video-games)]. Adapun total data ini berjumlah 1907.
 
-Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
+Variabel-variabel pada Discovering Hidden Trends in Global Video Games dataset adalah sebagai berikut:
+- `Rank`	Peringkat game dalam hal penjualan global. (Int)
+- `Game Title` : Judul game. (String)
+- `Platform` : Platform tempat game dirilis. (String)
+- `Year` : Tahun game dirilis. (Integer)
+- `Genre` : Genre game. (String)
+- `Publisher` : Penerbit game. (String)
+- `North America` : Penjualan game di Amerika Utara. (Integer)
+- `Europe` : Penjualan game di Eropa. (Integer)
+- `Japan` : Penjualan game di Jepang. (Integer)
+- `Rest of World` : Penjualan game di seluruh dunia. (Integer)
+- `Global` : Total penjualan game secara global. (Integer)
+- `Review` : Skor ulasan game. (Float)
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 - Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis.
