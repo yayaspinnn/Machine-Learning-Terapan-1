@@ -1,14 +1,16 @@
-# Laporan Proyek Machine Learning - Nama Anda
+# Laporan Proyek Machine Learning - Roni Merdiansah
 
 ## Project Overview
 
-Pada bagian ini, Kamu perlu menuliskan latar belakang yang relevan dengan proyek yang diangkat.
+Beralihnya tren game dari *game console* menjadi *digital game* merubah cara pendistribusian game tersebut. Game digital diakui memiliki banyak keunggulan
+dibandingkan game console, diantaranya; mudah diakses, bersifat *online*, dll. Pendistribusian game digital dilakukan melalui platform-platform tertentu. 
+Banyaknya genre game yang ada juga membuat para pemain bingung dalam memilih game apa yang akan mereka mainkan. Salah satu cara untuk mengatasi masalah tersebut 
+adalah menggunakan Sistem Rekomendasi pada setiap platform game.
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Jelaskan mengapa proyek ini penting untuk diselesaikan.
-- Menyertakan hasil riset terkait atau referensi. Referensi yang diberikan harus berasal dari sumber yang kredibel dan author yang jelas.
-  
-  Format Referensi: [Judul Referensi](https://scholar.google.com/) 
+Sistem rekomendasi adalah aplikasi perangkat lunak yang bertujuan untuk mendukung pengguna dalam pengambilan keputusan saat berinteraksi dengan ruang informasi
+yang besar. Sistem rekomendasi membantu mengatasi masalah informasi yang berlebihan dengan mengekspos pengguna ke item yang paling menarik, terbaru, dan relevan 
+[[Fasiha Ikram, 3 Feb 2022](https://www.hindawi.com/journals/sp/2022/6084363/)]. Sistem ini akan merekomendasikan game berdasarkan genre yang pemain sukai, ataupun
+berdasarkan game apa yang sedang tren saat itu.
 
 ## Business Understanding
 
