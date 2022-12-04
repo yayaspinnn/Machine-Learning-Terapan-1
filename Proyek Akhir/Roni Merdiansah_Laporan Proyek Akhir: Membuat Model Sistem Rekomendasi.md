@@ -26,14 +26,16 @@ Dapat membuat sistem rekomendasi yang akurat berdasarkan ratings dan aktivitas p
 
 Proyek ini menggunakan 2 algoritma Machine Learning sistem rekomendasi sebagai solusi, diantaranya :
 
-* *Content Based Filtering*: adalah algoritma yang merekomendasikan item serupa dengan apa yang disukai pengguna, berdasarkan tindakan mereka sebelumnya atau umpan balik eksplisit.
-* *Collaborative Filtering*: adalah algoritma yang bergantung pada pendapat komunitas pengguna. Dia tidak memerlukan atribut untuk setiap itemnya.
+* *Content Based Filtering*: adalah algoritma yang merekomendasikan game serupa dengan genre yang disukai pemain, berdasarkan tindakan mereka sebelumnya atau umpan balik eksplisit.
+* *Collaborative Filtering*: adalah algoritma yang bergantung pada pendapat komunitas pengguna, tidak memerlukan atribut untuk setiap itemnya.
 
-Algoritma Content Based Filtering digunakan untuk merekemondesikan game berdasarkan aktivitas pengguna pada masa lalu, sedangkan algoritma Collabarative Filltering digunakan untuk merekomendasikan game berdasarkan ratings yang paling tinggi.
+Algoritma Content Based Filtering digunakan untuk merekemondesikan game berdasarkan aktivitas pemain pada masa lalu, sedangkan algoritma Collabarative Filltering digunakan untuk merekomendasikan game berdasarkan rating yang paling tinggi.
 
 ## Data Understanding
 
-Dataset ini berisi data penjualan video game dari seluruh dunia, di berbagai platform, genre, dan wilayah. Dataset ini memberikan informasi tentang apa yang dianggap sebagai game hit di industri game saat ini [[Discovering Hidden Trends in Global Video Games](https://www.kaggle.com/datasets/thedevastator/discovering-hidden-trends-in-global-video-games)]. Adapun total data ini berjumlah 1907.
+Dataset ini berisi data penjualan video game dari seluruh dunia, di berbagai platform, genre, dan wilayah. Dataset ini memberikan informasi tentang apa yang dianggap sebagai game hit di industri game saat ini [[Discovering Hidden Trends in Global Video Games](https://www.kaggle.com/datasets/thedevastator/discovering-hidden-trends-in-global-video-games)]. Meskipun dataset ini merupakan data penjualan game, pada proyek ini akan mencoba menggunakan data yang ada untuk membuat sistem rekomendasi. Adapun total data ini berjumlah 1907.
+
+### Variable
 
 Variabel-variabel pada Discovering Hidden Trends in Global Video Games dataset adalah sebagai berikut:
 - `Rank`	Peringkat game dalam hal penjualan global. (Int)
@@ -49,15 +51,36 @@ Variabel-variabel pada Discovering Hidden Trends in Global Video Games dataset a
 - `Global` : Total penjualan game secara global. (Integer)
 - `Review` : Skor ulasan game. (Float)
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis.
+### Exploratory Data Analysis
+
+![](https://github.com/Dapperson/Machine-Learning-Terapan/blob/main/Proyek%20Akhir/Variabel%20Kategorik.png)
+
+Dari visualisasi diatas didapatkan beberapa *insight* diantaranya
+- Platform yang paling sering merilis game adalah PS2
+- Perusahaan penerbit paling banyak adalah Nintendo
+- Game dengan genre **Sport** paling banyak dibuat
+- Jumlah game dirilis tertinggi pada tahun 2008
+- Untuk rating paling rendah adalah 30.0 dan paling tinggi adalah 97.0
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
+Terdapat beberapa tahapan yang dilakukan sebelum membuat model sistem rekomendasi. Adapun tahapan nya sebagai berikut:
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+1. **Membuat Fitur `User_ID`** : Data ini tidak memiliki fitur user_id, maka diasumsikan bahwa setiap baris yang ada pada kolom adalah user_id, sehingga setiap index pada baris di labeli sebagai user_id.
+2. **Memilih Fitur** : Data ini merupakan data penjualan dan ini adalah proyek membuat sistem rekomendasi, maka dilakukan pemilihan fitur terlebih dahulu guna mempermudah dalam membuat model. Fitur yand dipilih sebagai berikut:
+ - `User_ID` 
+ - `Game Title`	
+ - `Platform`	
+ - `Year`	
+ - `Genre`	
+ - `Publisher` 
+ - `Review`
+3. **Format Ulang Fitur** : Melakukan pembulatan bilangan pada kolom `Review`
+4. **Membuat Fitur `Game_ID`** : Sama seperti sebelumnya, dataset ini tidak memiliki fitur game_id sehingga diasumsikan bahwa setiap nilai *Unique* pada `Game Title` adalah game_id kemudian melabelinya
+5. **Menghapus Duplikasi Data** : Menghilangkan data duplikasi berdasarkan fitur `Game_ID`
+6. **Membuat Dictionary** : Dilakukan untuk membuat DataFrame baru dengan beberapa fitur saja
+7. **Membuat DataFrame** : DataFrame yang dibuat hanya berisikan beberapa fitur saja untuk keperluan pembuatan model
+8. **Mengaplikasikan TF-IDF Vectorizer** : Menghitung bobot setiap kata terhadap data yang ada
+9. **Menghitung Cosine Similarity** : Bertujuan untuk mengetahui nilai kemiripan antar data
 
 ## Modeling
 Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
