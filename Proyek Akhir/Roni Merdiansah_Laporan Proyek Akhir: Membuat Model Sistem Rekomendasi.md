@@ -53,14 +53,27 @@ Variabel-variabel pada Discovering Hidden Trends in Global Video Games dataset a
 
 ### Exploratory Data Analysis
 
-![](https://github.com/Dapperson/Machine-Learning-Terapan/blob/main/Proyek%20Akhir/Variabel%20Kategorik.png)
+![](https://github.com/Dapperson/Machine-Learning-Terapan/blob/main/Proyek%20Akhir/Image/Platform.png)
+
+$$Gambar\ 1.1\ Platform$$
+
+![](https://github.com/Dapperson/Machine-Learning-Terapan/blob/main/Proyek%20Akhir/Image/Publisher.png)
+
+$$Gambar\ 1.2\ Publisher$$
+
+![](https://github.com/Dapperson/Machine-Learning-Terapan/blob/main/Proyek%20Akhir/Image/Genre.png)
+
+$$Gambar\ 1.3\ Genre$$
+
+![](https://github.com/Dapperson/Machine-Learning-Terapan/blob/main/Proyek%20Akhir/Image/Tahun%20Rilis.png)
+
+$$Gambar\ 1.4\ Year$$
 
 Dari visualisasi diatas didapatkan beberapa *insight* diantaranya
-- Platform yang paling sering merilis game adalah PS2
-- Perusahaan penerbit paling banyak adalah Nintendo
-- Game dengan genre **Sport** paling banyak dibuat
-- Jumlah game dirilis tertinggi pada tahun 2008
-- Untuk rating paling rendah adalah 30.0 dan paling tinggi adalah 97.0
+- Terlihat pada $Gambar\ 1.1$ bahwa Platform yang paling sering merilis game adalah PS2
+- Perusahaan penerbit game berdasarkan $Gambar\ 1.2$, paling banyak adalah Nintendo
+- Game dengan genre **Sport** paling banyak dibuat, dilihat dari $Gambar\ 1.3$
+- Jumlah game dirilis tertinggi pada tahun 2008 berdasarkan $Gambar\ 1.4$
 
 ## Data Preparation
 Terdapat beberapa tahapan yang dilakukan sebelum membuat model sistem rekomendasi. Adapun tahapan nya sebagai berikut:
@@ -82,20 +95,20 @@ Terdapat beberapa tahapan yang dilakukan sebelum membuat model sistem rekomendas
 8. **Mengaplikasikan TF-IDF Vectorizer** : Menghitung bobot setiap kata terhadap data yang ada
 9. **Menghitung Cosine Similarity** : Bertujuan untuk mengetahui nilai kemiripan antar data
 
-## Modeling
+## Modeling dan Results
 
 ### A. Model Development dengan *Content Based Filtering*
 
-Setelah mengaplikasikan *TF-IDF Vectorizer* dan melihat *Cosine Similarity* selanjutnya bisa melakukan ke tahap berikutnya yaitu membuat model *Content Based Filtering*. Konsep dari model ini adalah merekomendasikan daftar game berdasarkan index kemiripan dari data yang pernah dimainkan sebelumnya. Untuk lebih jelasnya bisa dilihat dibawah ini
+Setelah mengaplikasikan *TF-IDF Vectorizer* dan melihat *Cosine Similarity* selanjutnya bisa melakukan ke tahap berikutnya yaitu membuat model *Content Based Filtering*. TF-IDF Vectorizer digunakan pada sistem rekomendasi untuk menemukan representasi fitur penting dari setiap genre game. Sedangkan *Cosine Similarity* berfungai untuk menghitung derajat kesamaan (similarity degree) antar genre dengan teknik cosine similarity. Konsep dari model ini adalah merekomendasikan daftar game berdasarkan index kemiripan dari game yang pernah dimainkan sebelumnya. Untuk lebih jelasnya bisa dilihat dibawah ini
 
-Game yang pernah di mainkan
-
+$Tabel\ 1.1\ Game\ yang\ pernah\ di\ mainkan$
 | game_id | genre  |                         title |
 | ------- | -------|------------------------------ |
 |     404 | Action	| Grand Theft Auto: San Andreas |
 
-Game yang pernah dimainkan pemain adalah **Grand Theft Auto: San Andreas** dengan genre **Action**. Dari data tersebut sistem dapat merekomendasikan 5 game teratas dengan index kimiripan yang tinggi. Adapun kelima game tersebut sebagai berikut:
+Berdasarkan $Tabel\ 1.1$ bahwa game yang pernah dimainkan pemain adalah **Grand Theft Auto: San Andreas** dengan genre **Action**. Dari data tabel tersebut sistem dapat merekomendasikan 5 game teratas dengan index kesamaan yang tinggi. Adapun kelima game tersebut sebagai berikut:
 
+$Tabel\ 1.2\ Hasil\ rekomendasi\ model$
 |                         title	|  genre |
 | ----------------------------- | ------ |
 | New Super Mario Bros. U	      | Action |
@@ -104,12 +117,13 @@ Game yang pernah dimainkan pemain adalah **Grand Theft Auto: San Andreas** denga
 | Frogger 2: Swampy's Revenge	  | Action |
 | Dynasty Warriors 4	           | Action |
 
-Dari hasil diatas dapat dilihat bahwa model merekomendasikan game dengan genre **Action** dikarenakan pemain sebelumnya memainkan game **Grand Theft Auto: San Andreas** yang memiliki genre **Action**. Sistem menganggap bahwa pemain akan menyukai game dengan genre serupa namun dengan judul game yang berbeda.
+Dari $Tabel\ 1.2$ dapat dilihat bahwa model dapat bekerja dengan baik dengan merekomendasikan game yang memiliki genre **Action** dikarenakan pemain sebelumnya memainkan game **Grand Theft Auto: San Andreas** yang memiliki genre **Action**. Model menganggap bahwa pemain akan menyukai game dengan genre serupa namun dengan judul game yang berbeda.
 
 ### B. Model Development dengan *Collaborative Filtering*
 
-Model ini memilki konsep merekomendasikan game berdasarkan rating yang diberikan pemain lain. Sebelum membuat model ini, data harus melalui proses *Training* terlebih dahulu. Sebelum malakukan training, data harus di bagi terlebih dahulu menjadi data *training* dan data *validation*, dengan skala perbandingan data adalah 80:20, dan menggunakan *activation sigmoid*. Setelah melakukan semua proses itu maka selanjutnya melakukan uji coba pada model
+Model ini memilki konsep merekomendasikan game berdasarkan rating yang diberikan pemain lain. Sebelum membuat model ini, data harus melalui proses *Training* terlebih dahulu. Sebelum malakukan training, data harus di bagi terlebih dahulu menjadi data *training* dan data *validation*, dengan skala perbandingan data adalah 80:20, dan menggunakan *activation sigmoid*. Namun sebelumnya, perlu memetakan (mapping) data user dan game menjadi satu value terlebih dahulu, kemudian membuat rating dalam skala 0 sampai 1 agar mudah dalam melakukan proses training. Setelah melakukan semua proses itu maka selanjutnya melakukan uji coba pada model
 
+$Tabel\ 2.1\ Hasil\ rekomendasi\ untuk\ user$
 | Showing recommendations for users: 676|         |
 | ------------------------------------- | ------- |
 | Game with high ratings from user      |         |
@@ -129,20 +143,22 @@ Model ini memilki konsep merekomendasikan game berdasarkan rating yang diberikan
 | NFL 2K1                               |  Sports |
 | Burnout Revenge                       |  Racing |
 
-Dari tabel diatas dapat dilihat bahwa model dapat merekomendasikan game untuk `user_id` : **676** berdasarkan rating tinggi dari pemain lain adalah game dengan genre **Action**. Sedangkan untuk Top 10 rekomendasi game didominasi memiliki genre **Action** dan **Shooter**.  
+Dari tabel $Tabel\ 2.1$ bisa dilihat bahwa model dapat merekomendasikan game untuk `user_id` : **676** berdasarkan rating tinggi dari pemain lain adalah game dengan genre **Action**. Sedangkan untuk Top 10 rekomendasi game didominasi memiliki genre **Action** dan **Shooter**.  
 
 ## Evaluation
 ### A. *Content Based Filtering*
 
 Untuk evaluasi pada model ini sederhana saja dengan menggunakan rumus *precision* sebagai berikut
 
-![](https://raw.githubusercontent.com/Dapperson/Machine-Learning-Terapan/main/Proyek%20Akhir/Precision.jpeg)
+![](https://github.com/Dapperson/Machine-Learning-Terapan/blob/main/Proyek%20Akhir/Image/Precision.jpeg)
 
-Berdasarkan rumus diatas maka cara menghitung nilai precision berdasarkan model yang telah diuji cobakan adalah **P = 5/5** atau nilai precision nya adalah **100%**. Nilai 5 didapatkan dari genre yang muncul pada rekomendasi semuanya adalah **Action**, relavan dengan genre game yang pernah dimainkan sebelumnya oleh pemain.
+$$Gambar\ 2.1\ Rumus\ Precision$$
+
+Berdasarkan $Gambar\ 2.1$ yang merupakan rumus dari precision, maka cara menghitung nilai precision berdasarkan model yang telah diuji cobakan adalah **P = 5/5** atau nilai precision nya adalah **100%**. Nilai 5 didapatkan dari genre yang muncul pada rekomendasi semuanya adalah **Action**, relavan dengan genre game yang pernah dimainkan sebelumnya oleh pemain.
 
 ### B. *Collaborative Filtering*
 
-Evaluasi yang digunakan pada model ini adalah **RSME** *(Root Mean Squared Error)*
+Model ini menggunakan *Binary Crossentropy* untuk menghitung loss function, *Adam (Adaptive Moment Estimation)* sebagai optimizer, dan *Root Mean Squared Error (RMSE)* sebagai metrics evaluation. 
 
 RMSE adalah metode pengukuran dengan mengukur perbedaan nilai dari prediksi sebuah model sebagai estimasi atas nilai yang diobservasi. Root Mean Square Error adalah hasil dari akar kuadrat Mean Square Error. Keakuratan metode estimasi kesalahan pengukuran ditandai dengan adanya nilai RMSE yang kecil. Metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih kecil dikatakan lebih akurat daripada metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih besar.
 
@@ -158,4 +174,7 @@ Visualisasi model training diatas menggunakan konvergen pada epochs sebanyak 100
 - **val_loss** : 0.6936
 - **val_root_mean_squared_error** : 0.2793
 
-Perhatikan bahwa garis **test** lurus horizontal yang artinya memiliki nilai yang konstan. Hal ini terjadi karena dataset merupakan satu kesatuan dan juga antara variabel `user` dengan variabel pembandingnya, yaitu `game` tidak memiliki fitur `id` masing-masing. Fitur `id` didapatkan melalui proses pelabelan sehigga antara `user` dan `game` memiliki jumlah nilai *Unique* yang sama. Meskipun begitu, model masih mampu untuk merekomendasikan game dengan cukup baik.
+Perhatikan bahwa garis **test** lurus horizontal yang artinya memiliki nilai yang konstan. Hal ini terjadi karena dataset merupakan satu kesatuan dan juga antara variabel `user` dengan variabel pembandingnya, yaitu `game` tidak memiliki fitur `id` masing-masing. Fitur `id` didapatkan melalui proses pelabelan sehigga antara `user` dan `game` memiliki jumlah nilai *Unique* yang sama.
+
+## Conclusion
+Setelah membuat sistem rekomendasi menggunakan dua buah model yaitu *Content Based Filtering* dan *Collaborative Filtering* dapat dilihat bahwa hanya satu model yang memiliki kemampuan untuk merekomendasikan dengan akurasi tinggi, yaitu *Content Based Filtering*. Sedangkan untuk model *Collaborative Filtering* terbilang masih kurang efektif, dikarenakan selisih antara nilai **root_mean_squared_error** dengan **val_root_mean_squared_error** cukup besar yaitu 0.2418, sehingga masih memerlukan improvisasi lagi. Pemilihan dataset yang tepat juga dapat menjadi solusi untuk membuat model yang memiliki akurasi yang tinggi. 
