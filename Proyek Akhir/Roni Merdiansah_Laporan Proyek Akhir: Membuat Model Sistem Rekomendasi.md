@@ -9,7 +9,7 @@ adalah menggunakan Sistem Rekomendasi pada setiap platform game.
 
 Sistem rekomendasi adalah aplikasi perangkat lunak yang bertujuan untuk mendukung pengguna dalam pengambilan keputusan saat berinteraksi dengan ruang informasi
 yang besar. Sistem rekomendasi membantu mengatasi masalah informasi yang berlebihan dengan mengekspos pengguna ke item yang paling menarik, terbaru, dan relevan 
-[[Fasiha Ikram, 2022](https://www.hindawi.com/journals/sp/2022/6084363/)]. Sistem ini akan merekomendasikan game berdasarkan genre yang pemain sukai, ataupun
+[[1](https://www.hindawi.com/journals/sp/2022/6084363/)]]. Sistem ini akan merekomendasikan game berdasarkan genre yang pemain sukai, ataupun
 berdasarkan game apa yang sedang tren saat itu.
 
 ## Business Understanding
@@ -160,15 +160,27 @@ Berdasarkan $Gambar\ 2.1$ yang merupakan rumus dari precision, maka cara menghit
 
 Model ini menggunakan *Binary Crossentropy* untuk menghitung loss function, *Adam (Adaptive Moment Estimation)* sebagai optimizer, dan *Root Mean Squared Error (RMSE)* sebagai metrics evaluation. 
 
-RMSE adalah metode pengukuran dengan mengukur perbedaan nilai dari prediksi sebuah model sebagai estimasi atas nilai yang diobservasi. Root Mean Square Error adalah hasil dari akar kuadrat Mean Square Error. Keakuratan metode estimasi kesalahan pengukuran ditandai dengan adanya nilai RMSE yang kecil. Metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih kecil dikatakan lebih akurat daripada metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih besar.
+![](https://github.com/Dapperson/Machine-Learning-Terapan/blob/main/Proyek%20Akhir/Image/RMSE.png)
+
+$Gambar\ 3.1\ Rumus\ RMSE\$
+
+Berikut penjelasan dari $Gambar\ 3.1$
+- At = Nilai data Aktual
+- Ft = Nilai hasil prediksi
+- N = banyaknya data
+- ∑ = Summation (Jumlahkan keseluruhan  nilai) [[2](https://www.khoiri.com/2020/12/cara-menghitung-root-mean-square-error-rmse.html)]
+
+RMSE adalah metode pengukuran dengan mengukur perbedaan nilai dari prediksi sebuah model sebagai estimasi atas nilai yang diobservasi. Root Mean Square Error adalah hasil dari akar kuadrat Mean Square Error. Keakuratan metode estimasi kesalahan pengukuran ditandai dengan adanya nilai RMSE yang kecil. Metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih kecil dikatakan lebih akurat daripada metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih besar. [[3](https://www.dqlab.id/kriteria-jenis-teknik-analisis-data-dalam-forecasting)]
 
 Kelebihan dari metriks ini adalah menghukum kesalahan besar lebih sehingga bisa lebih tepat dalam beberapa kasus. Sedangkan kekurangan dari metriks ini adalah memberikan bobot yang relatif tinggi untuk kesalahan besar. Ini berarti RMSE harus lebih berguna ketika kesalahan besar sangat tidak diinginkan.
 
 Berikut hasil visualisasi nya
 
-![](https://raw.githubusercontent.com/Dapperson/Machine-Learning-Terapan/main/Proyek%20Akhir/RSME%20Visualisasi.png)
+![](https://github.com/Dapperson/Machine-Learning-Terapan/blob/main/Proyek%20Akhir/Image/RSME%20Visualisasi.png)
 
-Visualisasi model training diatas menggunakan konvergen pada epochs sebanyak 100, dan didapatkan nilai akhir sebagai berikut
+$Gambar\ 3.2\ Visualisasi\ proses\ training$
+
+Visualisasi model training pada $Gambar\ 3.2$ menggunakan konvergen pada epochs sebanyak 100, dan didapatkan nilai akhir sebagai berikut
 - **loss** : 0.5190
 - **root_mean_squared_error** : 0.0375
 - **val_loss** : 0.6936
@@ -178,3 +190,12 @@ Perhatikan bahwa garis **test** lurus horizontal yang artinya memiliki nilai yan
 
 ## Conclusion
 Setelah membuat sistem rekomendasi menggunakan dua buah model yaitu *Content Based Filtering* dan *Collaborative Filtering* dapat dilihat bahwa hanya satu model yang memiliki kemampuan untuk merekomendasikan dengan akurasi tinggi, yaitu *Content Based Filtering*. Sedangkan untuk model *Collaborative Filtering* terbilang masih kurang efektif, dikarenakan selisih antara nilai **root_mean_squared_error** dengan **val_root_mean_squared_error** cukup besar yaitu 0.2418, sehingga masih memerlukan improvisasi lagi. Pemilihan dataset yang tepat juga dapat menjadi solusi untuk membuat model yang memiliki akurasi yang tinggi. 
+
+Dengan kata lain sistem rekomendasi yang telah dibuat dalam proyek ini hanya bisa merekomendasikan game berdasarkan aktivitas pemain dimasa lalu, dan masih kurang memenuhi standar dalam memberikan rekomendasi game berdasarkan rating yang diberikan oleh pemain lain.
+
+## Referensi
+[1] [Fasiha Ikram, "Multimedia Recommendation System for Video Game Based on High-Level Visual Semantic Features"](https://www.hindawi.com/journals/sp/2022/6084363/)
+
+[2] [Khoiri, "Pengertian dan Cara Menghitung Root Mean Square Error (RMSE)"](https://www.khoiri.com/2020/12/cara-menghitung-root-mean-square-error-rmse.html)
+
+[3] [Reyvan Maulid, "Kriteria Jenis Teknik Analisis Data dalam Forecasting"](https://www.dqlab.id/kriteria-jenis-teknik-analisis-data-dalam-forecasting)
