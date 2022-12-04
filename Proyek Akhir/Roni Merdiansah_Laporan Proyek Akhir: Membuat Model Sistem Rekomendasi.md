@@ -83,22 +83,79 @@ Terdapat beberapa tahapan yang dilakukan sebelum membuat model sistem rekomendas
 9. **Menghitung Cosine Similarity** : Bertujuan untuk mengetahui nilai kemiripan antar data
 
 ## Modeling
-Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menyajikan dua solusi rekomendasi dengan algoritma yang berbeda.
-- Menjelaskan kelebihan dan kekurangan dari solusi/pendekatan yang dipilih.
+### A. Model Development dengan *Content Based Filtering*
+
+Setelah mengaplikasikan *TF-IDF Vectorizer* dan melihat *Cosine Similarity* selanjutnya bisa melakukan ke tahap berikutnya yaitu membuat model *Content Based Filtering*. Konsep dari model ini adalah merekomendasikan daftar game berdasarkan index kemiripan dari data yang pernah dimainkan sebelumnya. Untuk lebih jelasnya bisa dilihat dibawah ini
+
+Game yang pernah di mainkan
+
+| game_id | genre  |                         title |
+| ------- | -------|------------------------------ |
+|     404 | Action	| Grand Theft Auto: San Andreas |
+
+Game yang pernah dimainkan pemain adalah **Grand Theft Auto: San Andreas** dengan genre **Action**. Dari data tersebut sistem dapat merekomendasikan 5 game teratas dengan index kimiripan yang tinggi. Adapun kelima game tersebut sebagai berikut:
+
+|                         title	|  genre |
+| ----------------------------- | ------ |
+| New Super Mario Bros. U	      | Action |
+| Final Fight 2	                | Action |
+| The Lost World: Jurassic Park	| Action |
+| Frogger 2: Swampy's Revenge	  | Action |
+| Dynasty Warriors 4	           | Action |
+
+Dari hasil diatas dapat dilihat bahwa model merekomendasikan game dengan genre **Action** dikarenakan pemain sebelumnya memainkan game **Grand Theft Auto: San Andreas** yang memiliki genre **Action**. Sistem menganggap bahwa pemain akan menyukai game dengan genre serupa namun dengan judul game yang berbeda.
+
+### B. Model Development dengan *Collaborative Filtering*
+
+Model ini memilki konsep merekomendasikan game berdasarkan rating yang diberikan pemain lain. Sebelum membuat model ini, data harus melalui proses *Training* terlebih dahulu. Sebelum malakukan training, data harus di bagi terlebih dahulu menjadi data *training* dan data *validation*, dengan skala perbandingan data adalah 80:20, dan menggunakan *activation sigmoid*. Setelah melakukan semua proses itu maka selanjutnya melakukan uji coba pada model
+
+| Showing recommendations for users: 676|         |
+| ------------------------------------- | ------- |
+| Game with high ratings from user      |         |
+| ------------------------------------- | ------- |
+| Devil May Cry 2                       |  Action |
+| ------------------------------------- | ------- |
+| Top 10 Game Recommendation            |         |
+| ------------------------------------- | ------- |
+| Call of Duty: Modern Warfare 2        | Shooter |
+| GoldenEye 007                         | Shooter |
+| Uncharted 2: Among Thieves            |  Action |
+| Metal Gear Solid 2: Sons of Liberty   |  Action |
+| God of War                            |  Action |
+| Metroid Prime                         | Shooter | 
+| BioShock                              | Shooter |
+| Perfect Dark                          |  Action |
+| NFL 2K1                               |  Sports |
+| Burnout Revenge                       |  Racing |
+
+Dari tabel diatas dapat dilihat bahwa model dapat merekomendasikan game untuk `user_id` : **676** berdasarkan rating tinggi dari pemain lain adalah game dengan genre **Action**. Sedangkan untuk Top 10 rekomendasi game didominasi memiliki genre **Action** dan **Shooter**.  
 
 ## Evaluation
-Pada bagian ini Anda perlu menyebutkan metrik evaluasi yang digunakan. Kemudian, jelaskan hasil proyek berdasarkan metrik evaluasi tersebut.
+### A. *Content Based Filtering*
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+Untuk evaluasi pada model ini sederhana saja dengan menggunakan rumus *precision* sebagai berikut
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
+![](https://raw.githubusercontent.com/Dapperson/Machine-Learning-Terapan/main/Proyek%20Akhir/Precision.jpeg)
 
-**---Ini adalah bagian akhir laporan---**
+Berdasarkan rumus diatas maka cara menghitung nilai precision berdasarkan model yang telah diuji cobakan adalah **P = 5/5** atau nilai precision nya adalah **100%**. Nilai 5 didapatkan dari genre yang muncul pada rekomendasi semuanya adalah **Action**, relavan dengan genre game yang pernah dimainkan sebelumnya oleh pemain.
 
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
+### B. *Collaborative Filtering*
+
+Evaluasi yang digunakan pada model ini adalah **RSME** *(Root Mean Squared Error)*
+
+RMSE adalah metode pengukuran dengan mengukur perbedaan nilai dari prediksi sebuah model sebagai estimasi atas nilai yang diobservasi. Root Mean Square Error adalah hasil dari akar kuadrat Mean Square Error. Keakuratan metode estimasi kesalahan pengukuran ditandai dengan adanya nilai RMSE yang kecil. Metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih kecil dikatakan lebih akurat daripada metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih besar.
+
+Kelebihan dari metriks ini adalah menghukum kesalahan besar lebih sehingga bisa lebih tepat dalam beberapa kasus. Sedangkan kekurangan dari metriks ini adalah memberikan bobot yang relatif tinggi untuk kesalahan besar. Ini berarti RMSE harus lebih berguna ketika kesalahan besar sangat tidak diinginkan.
+
+Berikut hasil visualisasi nya
+
+![](https://raw.githubusercontent.com/Dapperson/Machine-Learning-Terapan/main/Proyek%20Akhir/RSME%20Visualisasi.png)
+
+Visualisasi model training diatas menggunakan konvergen pada epochs sebanyak 100, dan didapatkan nilai akhir sebagai berikut
+- **loss** : 0.5190
+- **root_mean_squared_error** : 0.0375
+- **val_loss** : 0.6936
+- **val_root_mean_squared_error** : 0.2793
+
+Perhatikan bahwa garis **test** lurus horizontal yang artinya memiliki nilai yang konstan. Hal ini terjadi karena dataset merupakan satu kesatuan dan juga antara variabel `user` dengan variabel pembandingnya, yaitu `game` tidak memiliki fitur `id` masing-masing. Fitur `id` didapatkan melalui proses pelabelan sehigga antara `user` dan `game` memiliki jumlah nilai *Unique* yang sama. Meskipun begitu, model masih mampu untuk merekomendasikan game dengan cukup baik.
