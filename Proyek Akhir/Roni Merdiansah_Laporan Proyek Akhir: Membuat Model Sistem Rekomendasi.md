@@ -9,7 +9,7 @@ adalah menggunakan Sistem Rekomendasi pada setiap platform game.
 
 Sistem rekomendasi adalah aplikasi perangkat lunak yang bertujuan untuk mendukung pengguna dalam pengambilan keputusan saat berinteraksi dengan ruang informasi
 yang besar. Sistem rekomendasi membantu mengatasi masalah informasi yang berlebihan dengan mengekspos pengguna ke item yang paling menarik, terbaru, dan relevan 
-[[1](https://www.hindawi.com/journals/sp/2022/6084363/)]]. Sistem ini akan merekomendasikan game berdasarkan genre yang pemain sukai, ataupun
+[[1](https://www.hindawi.com/journals/sp/2022/6084363/)]. Sistem ini akan merekomendasikan game berdasarkan genre yang pemain sukai, ataupun
 berdasarkan game apa yang sedang tren saat itu.
 
 ## Business Understanding
